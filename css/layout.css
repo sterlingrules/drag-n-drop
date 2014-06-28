@@ -1,0 +1,41 @@
+/* Layout */
+.container { height: 100%; }
+.wrapper {
+  position: relative;
+  top: 50%;
+  width: 960px;
+  min-height: 680px;
+  margin-top: -320px;
+
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.master-detail-col .col {
+  display: inline-block;
+  vertical-align: top;
+
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.master-detail-col > .col:first-child { width: 29%; }
+.master-detail-col > .col:last-child { width: 70%; }
+
+@media only screen and (min-width: 670px) and (max-width: 830px) {
+  .wrapper {
+    position: auto;
+    top: 0;
+    width: 100%;
+    margin: 0;
+  }
+  .master-detail-col > .col:first-child,
+  .master-detail-col > .col:last-child { width: 100%; }
+}
+
+#background {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}

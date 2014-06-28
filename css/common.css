@@ -1,0 +1,17 @@
+#coverup { background: #F2F2F2; }
+
+.left { display: inline-block; float: left; }
+.right { display: inline-block; float: right; }
+.center { margin-left: auto; margin-right: auto; }
+.inline-list li { display: inline-block; }
+
+.padding-left-right {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.round-corners,
+.round-corners:before {
+  -webkit-border-radius: 35px;
+  border-radius: 35px;
+}

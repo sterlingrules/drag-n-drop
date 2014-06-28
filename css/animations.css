@@ -1,0 +1,35 @@
+@-webkit-keyframes wobble {
+  0% { -webkit-transform: rotate(0deg) scale(1.0); }
+  8% { -webkit-transform: rotate(1deg) scale(1.02); }
+  16% { -webkit-transform: rotate(2deg) scale(1.0); }
+  24% { -webkit-transform: rotate(3deg) scale(0.98); }
+  32% { -webkit-transform: rotate(2deg) scale(1.0); }
+  40% { -webkit-transform: rotate(1deg) scale(1.02); }
+  48% { -webkit-transform: rotate(0deg) scale(1.0); }
+  56% { -webkit-transform: rotate(-1deg) scale(0.98); }
+  64% { -webkit-transform: rotate(-2deg) scale(1.0); }
+  72% { -webkit-transform: rotate(-3deg) scale(1.02); }
+  80% { -webkit-transform: rotate(-2deg) scale(1.0); }
+  88% { -webkit-transform: rotate(-1deg) scale(0.98); }
+}
+
+@-webkit-keyframes floating-shadow {
+  0% { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35); }
+  8% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); }
+  24% { box-shadow: 0 0 2px rgba(0, 0, 0, 0.5); }
+  40% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); }
+  56% { box-shadow: 0 0 2px rgba(0, 0, 0, 0.5); }
+  72% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); }
+  88% { box-shadow: 0 0 2px rgba(0, 0, 0, 0.5); }
+}
+
+@-webkit-keyframes drop-in {
+  0% {
+    opacity; 0;
+    -webkit-transform: scale(5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+  }
+}
