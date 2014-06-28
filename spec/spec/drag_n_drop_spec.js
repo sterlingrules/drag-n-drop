@@ -5,13 +5,13 @@ describe('drag_n_drop image setup', function() {
   });
 
   it('should begin with an empty list', function() {
-    var list = document.getElementById('draggable-items');
+    var list = document.querySelector('#draggable-items');
     expect(list.childNodes.length).toEqual(0);
   });
   
   it('should have nine items', function() {
     drag_n_drop.init();
-    var list = document.getElementById('draggable-items');
+    var list = document.querySelector('#draggable-items');
     expect(list.childNodes.length).toEqual(9);
   });
   
@@ -25,16 +25,16 @@ describe('drag_n_drop drag events', function() {
 
   beforeEach(function() {
     setFixtures('<ul id="draggable-items"></ul>');
-    list = document.getElementById('draggable-items');
+    list = document.querySelector('#draggable-items');
     drag_n_drop.init();
 
     elem = list.childNodes[0]; // after init, assign first element
   });
 
   it('should be hidden by coverup on start of drag', function() {
-    evt  = new CustomEvent('dragstart', true, true);
+    evt = new CustomEvent('dragstart', true, true);
     list.childNodes[0].dispatchEvent(evt);
-    expect(document.getElementById('coverup')).not.toBeNull();
+    expect(document.querySelector('#coverup')).not.toBeNull();
   });
 
   it('should remove coverup on end of drag', function() {
@@ -48,17 +48,17 @@ describe('drag_n_drop drag events', function() {
     elem.dispatchEvent(evt.start);
 
     elem.dispatchEvent(evt.end);
-    expect(document.getElementById('coverup')).toBeNull();
+    expect(document.querySelector('#coverup')).toBeNull();
   });
 
   it('should assign the .over class to the destination draggable when entering', function() {
-    evt  = new CustomEvent('dragenter', true, true);
+    evt = new CustomEvent('dragenter', true, true);
     list.childNodes[0].dispatchEvent(evt);
     expect(list.childNodes[0].className.indexOf('over')).toBeGreaterThan(-1);
   });
 
   it('should remove the over class from the destination draggable when leaving', function() {
-    evt  = new CustomEvent('dragleave', true, true);
+    evt = new CustomEvent('dragleave', true, true);
     elem.className = elem.className + ' over';
     elem.dispatchEvent(evt);
     expect(list.childNodes[0].className.indexOf('over')).toEqual(-1);
