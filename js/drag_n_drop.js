@@ -20,8 +20,8 @@ var drag_n_drop = (function() {
     },
 
     destroy: function(e) {
-      // remove coverup
-      coverup.parentNode.removeChild(coverup);
+      dragElem.classList.remove('hover'); // remove hover class
+      coverup.parentNode.removeChild(coverup); // remove coverup
 
       [].forEach.call(list.childNodes, function (item) {
         item.classList.remove('over');
@@ -49,6 +49,14 @@ var drag_n_drop = (function() {
 
       dragElem.innerHTML = destHTML;
       this.innerHTML = e.dataTransfer.getData('text/html');
+    },
+
+    mouseover: function() {
+      this.classList.add('hover');
+    },
+
+    mouseout: function() {
+      this.classList.remove('hover');
     }
   };
 
@@ -82,6 +90,8 @@ var drag_n_drop = (function() {
       item.addEventListener('dragleave', Drag.leave, false);
       item.addEventListener('dragover', Drag.over, false);
       item.addEventListener('drop', Drag.drop, false);
+      item.addEventListener('mouseover', Drag.mouseover, false);
+      item.addEventListener('mouseout', Drag.mouseout, false);
     });
   }
 

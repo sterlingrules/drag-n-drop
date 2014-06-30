@@ -9,7 +9,7 @@
   -webkit-user-drag: element;
 }
 
-.draggable:hover {
+.draggable.hover {
   -webkit-animation: wobble 2.5s infinite linear forwards,
     floating-shadow 2.5s infinite linear forwards;
   animation: wobble 2.5s infinite linear forwards,

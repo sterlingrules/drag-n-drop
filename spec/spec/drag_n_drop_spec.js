@@ -59,9 +59,29 @@ describe('drag_n_drop drag events', function() {
 
   it('should remove the over class from the destination draggable when leaving', function() {
     evt = new CustomEvent('dragleave', true, true);
-    elem.className = elem.className + ' over';
+    elem.classList.add('over');
     elem.dispatchEvent(evt);
     expect(list.childNodes[0].className.indexOf('over')).toEqual(-1);
+  });
+
+  it('draggable should get a hover class on mouseover', function() {
+    evt = new MouseEvent('mouseover', true, true);
+    elem.dispatchEvent(evt);
+    expect(list.childNodes[0].className.indexOf('hover')).toBeGreaterThan(-1);
+  });
+
+  it('draggable should lose hover class on mouseout', function() {
+    evt = {
+      over: new MouseEvent('mouseover', true, true),
+      out:  new MouseEvent('mouseout', true, true)
+    };
+
+    // the event needs to trigger, to add
+    // the hover class to the draggable
+    elem.dispatchEvent(evt.over);
+
+    elem.dispatchEvent(evt.out);
+    expect(list.childNodes[0].className.indexOf('hover')).toEqual(-1);
   });
 
 });
